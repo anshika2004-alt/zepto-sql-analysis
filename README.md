@@ -80,6 +80,7 @@ FROM zepto;
 
 <img width="128" height="82" alt="2-a" src="https://github.com/user-attachments/assets/57ee2404-ca7c-4121-8de9-5c479c431f4c" />
 
+
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 ```sql
 SELECT *
@@ -112,6 +113,7 @@ ORDER BY category;
 
 <img width="250" height="483" alt="2-b" src="https://github.com/user-attachments/assets/0acbedde-fec3-4043-9bd4-c6bcbc3379db" />
 
+
 - **Product In stock Vs Out Of Stock**: Check if the products are in stock or are out of stock.
 ```sql
 SELECT outofstock, COUNT(skuid)
@@ -121,6 +123,7 @@ GROUP BY outofstock;
 **Output**
 
 <img width="242" height="110" alt="2-c" src="https://github.com/user-attachments/assets/39fb8d58-01e7-4f5e-a093-ccb3d94bf5ae" />
+
 
 - **Product Names Present Multiple Times**: Lists products that appear in the data more than once.
 ```sql
@@ -165,6 +168,7 @@ The following SQL queries were developed to answer specific business questions:
    
    <img width="670" height="361" alt="q1" src="https://github.com/user-attachments/assets/2b8335b1-3945-4120-ab9e-e5ac0cf718f1" />
 
+
 2. **What are the products with high MRP but out of stock**
 ```sql
 SELECT DISTINCT name, mrp 
@@ -175,6 +179,7 @@ ORDER BY mrp DESC;
 **Output**
 
 <img width="612" height="175" alt="q2" src="https://github.com/user-attachments/assets/99739043-1c68-41e5-980a-ffb8c76de0f7" />
+
 
 3. **Calculate the estimated revenue for each category**
 ```sql
@@ -188,6 +193,7 @@ ORDER BY total_revenue;
 
 <img width="380" height="483" alt="q3" src="https://github.com/user-attachments/assets/28c7c4d5-47cc-4ec4-8b80-a75aa9ec873e" />
 
+
 4. **Find all the products where MRP is greater than 500rs and discount is less than 10%**
 ```sql
 SELECT DISTINCT name, mrp,discountpercent
@@ -198,6 +204,7 @@ ORDER BY mrp DESC ,discountpercent DESC ;
 **Output**
 
 <img width="892" height="296" alt="q4" src="https://github.com/user-attachments/assets/de040f47-102a-4587-9551-2071b1f5569c" />
+
 
 5. **Identify the top 5 categories offering the highest average discount percentage**
 ```sql
@@ -212,6 +219,7 @@ LIMIT 5;
 
 <img width="378" height="201" alt="q5" src="https://github.com/user-attachments/assets/d8875f3b-50fb-4677-af1f-325dad458256" />
 
+
 6. **Find the price per gram for products above 100 gms and sort by best value**
 ```sql
 SELECT DISTINCT name, weightingms, discountedsellingprice,
@@ -223,6 +231,7 @@ ORDER BY price_per_gm;
 **Output**
 
 <img width="1087" height="362" alt="q6" src="https://github.com/user-attachments/assets/f576fb56-2591-4b9d-bb76-b11bfafe56d9" />
+
 
 7. **Group the products into categories like low, medium and bulk**
 ```sql
@@ -237,6 +246,7 @@ FROM zepto;
 
 <img width="1008" height="208" alt="q7" src="https://github.com/user-attachments/assets/5ba37c3d-3d6a-4d3b-a44f-1e9c7eff1963" />
 
+
 8. **What is the total inventory weight per category**
 ```sql
 SELECT category,
@@ -248,6 +258,7 @@ ORDER BY total_weight;
 **Output**
 
 <img width="372" height="485" alt="q8" src="https://github.com/user-attachments/assets/8a516641-3ab0-4a79-92ba-d0ac73796bbd" />
+
 
 ## Author - Anshika Srivastava
 
