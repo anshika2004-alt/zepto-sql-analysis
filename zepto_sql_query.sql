@@ -1,3 +1,5 @@
+CREATE DATABASE zepto_sql_project;
+
 DROP TABLE IF EXISTS zepto;
 
 CREATE TABLE zepto
@@ -148,6 +150,7 @@ SUM (weightingms * availablequantity) AS total_weight
 FROM zepto
 GROUP BY category
 ORDER BY total_weight;
+
 
 
 
