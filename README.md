@@ -69,6 +69,178 @@ CREATE TABLE zepto
 );
 ```
 
+### 2. Data Exploration & Cleaning
+
+- **Record Count**: Determine the total number of records in the dataset.
+```sql
+SELECT COUNT(*)
+FROM zepto;
+```
+**Output**
+
+- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+```sql
+SELECT *
+FROM zepto
+WHERE name IS NULL
+OR
+category IS NULL
+OR
+mrp IS NULL
+OR
+discountpercent IS NULL
+OR
+availablequantity IS NULL
+OR
+discountedsellingprice IS NULL
+OR
+weightingms IS NULL
+OR
+outofstock IS NULL
+OR
+quantity IS NULL;
+```
+
+- **Category Count**: Identify all unique product categories in the dataset.
+```sql
+SELECT DISTINCT(category)
+FROM zepto
+ORDER BY category;
+```
+-**Product In stock Vs Out Of Stock**: Check if the products are in stock or are out of stock.
+```sql
+SELECT outofstock, COUNT(skuid)
+FROM zepto
+GROUP BY outofstock;
+```
+
+-**Product Names Present Multiple Times**: Lists products that appear in the data more than once.
+```sql
+SELECT name, COUNT(skuid) AS "Number of Skus"
+FROM zepto
+GROUP BY name
+HAVING COUNT(skuid)>1
+ORDER BY COUNT(skuid) DESC ;
+```
+
+-**Products Where Price = 0** 
+```sql
+SELECT *
+FROM zepto
+WHERE mrp = 0 OR discountedsellingprice = 0;
+```
+
+-**Delete Products Where Price = 0**
+```sql
+DELETE FROM zepto
+WHERE mrp = 0;
+```
+-**Convert Paise To Rupees**
+```sql
+UPDATE zepto
+SET mrp = mrp /100.0,
+discountedsellingprice = discountedsellingprice/ 100.0;
+```
+
+### 3. Data Analysis & Findings
+
+The following SQL queries were developed to answer specific business questions:
+
+1. **Find the top 10 best valued products based on the discount percentage**:
+   ```sql
+   SELECT DISTINCT name, mrp, discountpercent
+   FROM zepto
+   ORDER BY discountpercent DESC
+   LIMIT 10;
+   ```
+   **Output**
+
+2. **What are the products with high MRP but out of stock**
+```sql
+SELECT DISTINCT name, mrp 
+FROM zepto
+WHERE mrp > 300 AND outofstock = True
+ORDER BY mrp DESC;
+```
+**Output**
+
+3. **Calculate the estimated revenue for each category**
+```sql
+SELECT category, 
+SUM(discountedsellingprice * availablequantity) AS total_revenue
+FROM zepto
+GROUP BY category
+ORDER BY total_revenue;
+```
+**Output**
+
+4. **Find all the products where MRP is greater than 500rs and discount is less than 10%**
+```sql
+SELECT DISTINCT name, mrp,discountpercent
+FROM zepto
+WHERE mrp > 500 AND discountpercent <10
+ORDER BY mrp DESC ,discountpercent DESC ;
+```
+**Output**
+
+5. **Identify the top 5 categories offering the highest average discount percentage**
+```sql
+SELECT DISTINCT category,
+ROUND (AVG (discountpercent),2) AS avg_discount
+FROM zepto
+GROUP BY category
+ORDER BY avg_discount DESC
+LIMIT 5;
+```
+**Output**
+
+6. **Find the price per gram for products above 100 gms and sort by best value**
+```sql
+SELECT DISTINCT name, weightingms, discountedsellingprice,
+ROUND (discountedsellingprice /weightingms ,2) AS price_per_gm
+FROM zepto
+WHERE weightingms >= 100
+ORDER BY price_per_gm;
+```
+
+7. **Group the products into categories like low, medium and bulk**
+```sql
+SELECT DISTINCT name, weightingms,
+CASE WHEN weightingms < 1000 THEN 'Low'
+     WHEN weightingms < 5000 THEN 'Medium'
+     ELSE 'Bulk'
+	 END AS weight_category
+FROM zepto;
+```
+**Output**
+
+8. **What is the total inventory weight per category**
+```sql
+SELECT category,
+SUM (weightingms * availablequantity) AS total_weight
+FROM zepto
+GROUP BY category
+ORDER BY total_weight;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
