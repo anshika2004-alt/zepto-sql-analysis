@@ -100,21 +100,20 @@ outofstock IS NULL
 OR
 quantity IS NULL;
 ```
-
 - **Category Count**: Identify all unique product categories in the dataset.
 ```sql
 SELECT DISTINCT(category)
 FROM zepto
 ORDER BY category;
 ```
--**Product In stock Vs Out Of Stock**: Check if the products are in stock or are out of stock.
+- **Product In stock Vs Out Of Stock**: Check if the products are in stock or are out of stock.
 ```sql
 SELECT outofstock, COUNT(skuid)
 FROM zepto
 GROUP BY outofstock;
 ```
 
--**Product Names Present Multiple Times**: Lists products that appear in the data more than once.
+- **Product Names Present Multiple Times**: Lists products that appear in the data more than once.
 ```sql
 SELECT name, COUNT(skuid) AS "Number of Skus"
 FROM zepto
@@ -123,19 +122,19 @@ HAVING COUNT(skuid)>1
 ORDER BY COUNT(skuid) DESC ;
 ```
 
--**Products Where Price = 0** 
+- **Products Where Price = 0** 
 ```sql
 SELECT *
 FROM zepto
 WHERE mrp = 0 OR discountedsellingprice = 0;
 ```
 
--**Delete Products Where Price = 0**
+- **Delete Products Where Price = 0**
 ```sql
 DELETE FROM zepto
 WHERE mrp = 0;
 ```
--**Convert Paise To Rupees**
+- **Convert Paise To Rupees**
 ```sql
 UPDATE zepto
 SET mrp = mrp /100.0,
