@@ -259,6 +259,35 @@ ORDER BY total_weight;
 
 <img width="372" height="485" alt="q8" src="https://github.com/user-attachments/assets/8a516641-3ab0-4a79-92ba-d0ac73796bbd" />
 
+## Findings
+
+-**Duplicate Product Records**: Multiple SKUs were found to be listed more than once, indicating redundancy that could affect inventory tracking and analytics accuracy.
+
+-**Missing or Invalid Prices**: Product entries had an MRP of zero or null, suggesting incomplete data that needed cleaning before revenue calculations.
+
+-**Overlapping Category Assignments**: Certain products appeared under multiple categories, pointing to inconsistent classification within the catalog.
+
+-**Stock Imbalance Across Categories**: Some categories had significantly higher out of stock rates compared to others, signaling potential demand supply gaps.
+
+-**High Demand for Premium Products**: Products priced above ₹300 were more frequently out of stock, indicating strong customer preference for higher-value items.
+
+## Reports
+
+-**Top Discounted Products**: A ranked list of the top 10 products with the highest discount percentages was generated to highlight customer attractive offerings.
+
+-**Revenue Potential Estimation**: Estimated revenue was calculated for each product by multiplying its discounted price with available stock, helping identify high value SKUs.
+
+-**Price per Gram Normalization**: Price was standardized across different weight variations to enable fair comparison between products of varying sizes.
+
+-**Weight Based Product Segmentation**: Products were classified as Low, Medium, or Bulk based on weight, offering better clarity for logistics and categorization.
+
+-**Category Wise Discount Analysis**: The top 5 categories offering the greatest average customer savings were identified to assess promotional effectiveness.
+
+
+## Conclusion
+
+The analysis highlights that product catalog inconsistencies such as duplicate entries and missing price values can significantly affect inventory and pricing accuracy. Premium priced products showed higher demand, often going out of stock faster than lower priced items, suggesting strong consumer preference for value over budget options. Discount driven categories emerged as major customer attractors, reinforcing the importance of strategic pricing and inventory alignment.
+
 
 ## Author - Anshika Srivastava
 
