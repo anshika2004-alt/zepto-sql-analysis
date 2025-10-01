@@ -32,12 +32,12 @@ The SQL script (zepto_sql_query.sql) covers:
 2. **Data exploration** – Checking categories, stock, duplicates
 3. **Data Cleaning** – Handling nulls, removing invalid prices, unit conversion
 4. **Analysis queries** -
-- 1.Top 10 discounted products
-- 2.High MRP but out-of-stock items
-- 3.Revenue estimation by category
-- 4.Categories with highest average discount
-- 5.Best value products (price per gram)
-- 6.Inventory weight by category
+- Top 10 discounted products
+- High MRP but out-of-stock items
+- Revenue estimation by category
+- Categories with highest average discount
+- Best value products (price per gram)
+- Inventory weight by category
 
 ## Tools And Techniques 
 
