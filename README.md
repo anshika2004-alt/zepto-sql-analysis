@@ -39,7 +39,7 @@ The SQL script (zepto_sql_query.sql) covers:
    - Categories with highest average discount  
    - Best value products (price per gram)  
    - Inventory weight by category
-## Tools And Techniques 
+## Tools and Techniques 
 
 1. **PostgreSQL 17.5**: An open-source relational database system used to manage all project data. It was chosen for its reliability and advanced features, which ensured data integrity and efficient query processing.
 2. **PgAdmin 4**: The primary graphical user interface (GUI) used for administering and developing the PostgreSQL database. It facilitated tasks such as database design, data management, and query execution.
